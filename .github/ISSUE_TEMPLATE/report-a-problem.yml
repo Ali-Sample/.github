@@ -1,0 +1,35 @@
+name: Report a problem
+description: Something that worked as signed off doesn't any more.
+type: Defect
+body:
+  - type: input
+    id: process-step
+    attributes:
+      label: Process step
+      description: Where it happened, as stream/process/step (e.g. o2c/invoice/create).
+      placeholder: o2c/invoice/create
+    validations:
+      required: true
+  - type: dropdown
+    id: handoff
+    attributes:
+      label: Did it happen at a hand-off between two processes?
+      description: If yes, it's a cross-process defect and goes to the stream owner.
+      options:
+        - "No"
+        - "Yes"
+        - "Not sure"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+      description: Steps to reproduce. Placeholder data only; no real customer records or screenshots of real data.
+    validations:
+      required: true
+  - type: input
+    id: change
+    attributes:
+      label: Change that may have caused it
+      description: The change issue number, if known (e.g. #12).
