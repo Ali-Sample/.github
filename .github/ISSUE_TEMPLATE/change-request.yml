@@ -1,0 +1,35 @@
+name: Change request
+description: Ask for a new or changed behaviour. One issue per change; it is the thread for everything about it.
+type: Change
+body:
+  - type: input
+    id: process-step
+    attributes:
+      label: Process step
+      description: Where this change lives, as stream/process/step from the process map (e.g. o2c/sales-order/approve).
+      placeholder: o2c/sales-order/approve
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: The need
+      description: What problem this solves and for whom. Placeholder data only.
+    validations:
+      required: true
+  - type: textarea
+    id: scenarios
+    attributes:
+      label: UAT scenarios
+      description: Numbered scenarios the owner will accept against. Each becomes a test on the process step.
+      placeholder: |
+        1. Given ..., when ..., then ...
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: Business owner
+      description: Who signs this change off.
+    validations:
+      required: true
